@@ -49,3 +49,7 @@ Whilst this seems simple there is a couple of caveats which complexifies the pro
 ## Marketing ##
 
 It is crucial for this project success to have good visibility amongst Linux developers. It is essential to both advertise this project and also ensure it is highly reliable.
+
+## Name ##
+
+The name for the project, **queenbee**, was directly inspired from **Bumblebee**, and because queen bees manages hives.
