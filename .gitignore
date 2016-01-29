@@ -43,3 +43,8 @@ config.*
 configure
 install-sh
 missing
+depcomp
+stamp-h1
+configure.scan
+autoscan-*.log
+autoscan.log
