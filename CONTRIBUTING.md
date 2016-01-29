@@ -8,9 +8,6 @@ Branches:
 
 Version convention:
 1. Version will follow this format a.b.c
-2. c will increment only for bugfixes
-3. b will increment only for minor changes
+2. c will increment only for bug fixes
+3. b will increment only for minor changes  and must be backwards compatible
 4. a will increment only for major changes
-
-Backwards compatibility:
-1. Once version 1.0.0, all new version will be backwards compatible
