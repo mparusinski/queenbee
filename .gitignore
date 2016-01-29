@@ -31,4 +31,15 @@
 # Debug files
 *.dSYM/
 
+# Project specifically
 queenbee
+autom4te.cache
+aclocal.m4
+Makefile
+Makefile.in
+build-aux
+compile
+config.*
+configure
+install-sh
+missing
