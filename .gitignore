@@ -31,20 +31,11 @@
 # Debug files
 *.dSYM/
 
+# Created by https://www.gitignore.io/api/scons
+
+### SCons ###
+# for projects that use SCons for building: http://http://www.scons.org/
+.sconsign.dblite
+
 # Project specifically
 queenbee
-autom4te.cache
-aclocal.m4
-Makefile
-Makefile.in
-build-aux
-compile
-config.*
-configure
-install-sh
-missing
-depcomp
-stamp-h1
-configure.scan
-autoscan-*.log
-autoscan.log
