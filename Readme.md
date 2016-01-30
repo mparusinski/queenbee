@@ -15,3 +15,15 @@ will execute
 optirun glxgears -info
 ```
 if the system has hybrid graphics and if Bumblee is installed.
+
+# Building #
+
+To build the project run 
+```shell
+scons
+```
+
+To clean the project run
+```shell
+scons -c
+```
