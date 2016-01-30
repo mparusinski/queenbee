@@ -9,6 +9,7 @@
 
 void init_args() {
   ARGUMENTS.verbose = 0;
+  ARGUMENTS.mock_execution = 0;
   ARGUMENTS.executable_path = NULL;
 }
 
@@ -24,8 +25,9 @@ void display_usage( void ) {
         "integrated / dedicated GPU setups and executes application \n"
         "against best GPU" );
   puts( "" );
-  puts( "-h, --help         displays this message" );
-  puts( "-v, --version      displays the version number");
+  puts( "-h, --help             displays this message" );
+  puts( "-v, --version          displays the version number" );
+  puts( "--mock-execution       do not run the specified file (profiling only)" );
 }
 
 int main(int argc, char *argv[]) {
@@ -37,6 +39,7 @@ int main(int argc, char *argv[]) {
     { "help", no_argument, NULL, 'h' },
     { "version", no_argument, NULL, 'V' },
     { "verbose", no_argument, NULL, 'v' },
+    { "mock-execution", no_argument, NULL, 'm' },
     { NULL, 0, NULL, 0 }
   };
 
@@ -53,14 +56,17 @@ int main(int argc, char *argv[]) {
       case 'h':
         display_usage();
         return EXIT_SUCCESS;
+      case 'm':
+        ARGUMENTS.mock_execution = 1;
       case 0:
+        fprintf(stderr, "Invalid argument\n");
         display_usage();
         return EXIT_FAILURE;
       default: // Should not get here
         return EXIT_FAILURE;
-    }
   }
 
+    }
   if ((optind + 1) > argc) {
     fprintf(stderr, "Missing executable \n");
     display_usage();
