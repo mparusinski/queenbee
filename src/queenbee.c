@@ -15,12 +15,6 @@ void init_args( args_t * arguments ) {
   arguments->executable_path = NULL;
 }
 
-struct option long_opts[] = {
-  { "help", no_argument, NULL, 'h' },
-  { "version", no_argument, NULL, 'v' },
-  { NULL, required_argument, NULL, 0 }
-};
-
 void display_version( void ) {
   char str[32];
   sprintf(str, NAME " version %d.%d.%d", MAJOR_VERSION, MINOR_VERSION, REVISION);
@@ -38,9 +32,16 @@ void display_usage( void ) {
 }
 
 int main(int argc, char *argv[]) {
+  extern int optind;
   args_t arguments;
   int long_index = 0;
   int opt = 0;
+
+  struct option long_opts[] = {
+    { "help", no_argument, NULL, 'h' },
+    { "version", no_argument, NULL, 'v' },
+    { NULL, 0, NULL, 0 }
+  };
 
   init_args(&arguments);
 
@@ -54,10 +55,23 @@ int main(int argc, char *argv[]) {
         display_usage();
         return EXIT_SUCCESS;
       case 0:
+        display_usage();
         return EXIT_FAILURE;
       default: // Should not get here
         return EXIT_FAILURE;
     }
+  }
+
+  if ((optind + 1) > argc) {
+    fprintf(stderr, "Missing executable \n");
+    display_usage();
+    return EXIT_FAILURE;
+  } else if (argc > (optind + 1)) {
+    fprintf(stderr, "Too many arguments\n");
+    display_usage();
+    return EXIT_FAILURE;
+  } else {
+    arguments.executable_path = argv[optind];
   }
 
   return EXIT_SUCCESS;
