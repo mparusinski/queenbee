@@ -27,7 +27,7 @@ void display_usage( void ) {
   puts( "" );
   puts( "-h, --help             displays this message" );
   puts( "-v, --version          displays the version number" );
-  puts( "--mock-execution       do not run the specified file (profiling only)" );
+  puts( "-m, --mock-execution       do not run the specified file (profiling only)" );
 }
 
 int main(int argc, char *argv[]) {
