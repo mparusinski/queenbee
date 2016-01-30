@@ -8,10 +8,12 @@
 #define OPTSTR "vh"
 
 typedef struct {
+  int verbose;
   char * executable_path;
 } args_t;
 
 void init_args( args_t * arguments ) {
+  arguments->verbose = 0;
   arguments->executable_path = NULL;
 }
 
@@ -39,7 +41,8 @@ int main(int argc, char *argv[]) {
 
   struct option long_opts[] = {
     { "help", no_argument, NULL, 'h' },
-    { "version", no_argument, NULL, 'v' },
+    { "version", no_argument, NULL, 'V' },
+    { "verbose", no_argument, NULL, 'v' },
     { NULL, 0, NULL, 0 }
   };
 
@@ -49,6 +52,8 @@ int main(int argc, char *argv[]) {
   while ( opt != -1 ) {
     switch ( opt ) {
       case 'v':
+        arguments.verbose = 1;
+      case 'V':
         display_version();
         return EXIT_SUCCESS;
       case 'h':
