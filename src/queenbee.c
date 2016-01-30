@@ -6,7 +6,7 @@
 #include "common.h"
 #include "unix_toolkit.h"
 
-#define OPTSTR "vh"
+#define OPTSTR "mvVh"
 
 void init_args() {
   ARGUMENTS.verbose = 0;
@@ -68,6 +68,8 @@ int main(int argc, char *argv[]) {
       default: // Should not get here
         return EXIT_FAILURE;
       }
+
+      opt = getopt_long( argc, argv, OPTSTR, long_opts, &long_index );
   }
 
   if ((optind + 1) > argc) {
