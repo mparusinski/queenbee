@@ -1,1 +1,1 @@
-Program('src/queenbee.c')
+Program('bin/queenbee', 'src/queenbee.c')
