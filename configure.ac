@@ -10,6 +10,7 @@ AM_INIT_AUTOMAKE
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_INSTALL
+AC_LANG(C)
 
 # Checks for libraries.
 
@@ -20,5 +21,5 @@ AC_CHECK_HEADERS([stdlib.h])
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile, src/Makefile])
+AC_CONFIG_FILES([src/Makefile])
 AC_OUTPUT

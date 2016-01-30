@@ -1,5 +1,5 @@
 #!/bin/sh
 aclocal
+automake --add-missing
 autoreconf
 autoheader
-automake --add-missing
