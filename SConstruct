@@ -1,5 +1,4 @@
-Sources = ['src/queenbee.c',
-           'src/usage.c']
+Sources = ['src/queenbee.c']
 
 env = Environment(CPPPATH = ['./include/'])
 env.Program('bin/queenbee', Sources)
