@@ -64,9 +64,9 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
       default: // Should not get here
         return EXIT_FAILURE;
+      }
   }
-
-    }
+  
   if ((optind + 1) > argc) {
     fprintf(stderr, "Missing executable \n");
     display_usage();
