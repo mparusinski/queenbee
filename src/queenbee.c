@@ -4,6 +4,7 @@
 #include <getopt.h>
 
 #include "common.h"
+#include "unix_toolkit.h"
 
 #define OPTSTR "vh"
 
@@ -50,6 +51,7 @@ int main(int argc, char *argv[]) {
     switch ( opt ) {
       case 'v':
         ARGUMENTS.verbose = 1;
+        break;
       case 'V':
         display_version();
         return EXIT_SUCCESS;
@@ -58,6 +60,7 @@ int main(int argc, char *argv[]) {
         return EXIT_SUCCESS;
       case 'm':
         ARGUMENTS.mock_execution = 1;
+        break;
       case 0:
         fprintf(stderr, "Invalid argument\n");
         display_usage();
@@ -66,7 +69,7 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
       }
   }
-  
+
   if ((optind + 1) > argc) {
     fprintf(stderr, "Missing executable \n");
     display_usage();
@@ -78,6 +81,9 @@ int main(int argc, char *argv[]) {
   } else {
     ARGUMENTS.executable_path = argv[optind];
   }
+
+  char * exec_argv[] = { ARGUMENTS.executable_path, (char *)0 };
+  exec_wrapper(ARGUMENTS.executable_path, exec_argv);
 
   return EXIT_SUCCESS;
 }
