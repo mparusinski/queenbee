@@ -7,11 +7,6 @@
 
 #define OPTSTR "vh"
 
-typedef struct ARGUMENTS {
-  int verbose;
-  char * executable_path;
-} args_t;
-
 void init_args() {
   ARGUMENTS.verbose = 0;
   ARGUMENTS.executable_path = NULL;
@@ -35,7 +30,6 @@ void display_usage( void ) {
 
 int main(int argc, char *argv[]) {
   extern int optind;
-  args_t arguments;
   int long_index = 0;
   int opt = 0;
 
@@ -46,13 +40,13 @@ int main(int argc, char *argv[]) {
     { NULL, 0, NULL, 0 }
   };
 
-  init_args(&arguments);
+  init_args();
 
   opt = getopt_long( argc, argv, OPTSTR, long_opts, &long_index  );
   while ( opt != -1 ) {
     switch ( opt ) {
       case 'v':
-        arguments.verbose = 1;
+        ARGUMENTS.verbose = 1;
       case 'V':
         display_version();
         return EXIT_SUCCESS;
