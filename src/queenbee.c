@@ -7,14 +7,14 @@
 
 #define OPTSTR "vh"
 
-typedef struct {
+typedef struct ARGUMENTS {
   int verbose;
   char * executable_path;
 } args_t;
 
-void init_args( args_t * arguments ) {
-  arguments->verbose = 0;
-  arguments->executable_path = NULL;
+void init_args() {
+  ARGUMENTS.verbose = 0;
+  ARGUMENTS.executable_path = NULL;
 }
 
 void display_version( void ) {
@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
     display_usage();
     return EXIT_FAILURE;
   } else {
-    arguments.executable_path = argv[optind];
+    ARGUMENTS.executable_path = argv[optind];
   }
 
   return EXIT_SUCCESS;
