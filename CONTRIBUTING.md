@@ -11,3 +11,7 @@ Version convention:
 2. c will increment only for bug fixes
 3. b will increment only for minor changes  and must be backwards compatible
 4. a will increment only for major changes
+
+Style guidelines:
+1. Follow the K&R guidelines
+2. No hard tabs, tab are 4 spaces
