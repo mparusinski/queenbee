@@ -14,6 +14,7 @@ int exec_wrapper(char *file, char * argv[]) {
   char * whole_cmd_str = NULL;
   int whole_cmd_str_size = 0;
   int argc = 0;
+  int return_value = 0;
 
   while (argv[argc] != NULL) {
     argc++;
@@ -39,7 +40,7 @@ int exec_wrapper(char *file, char * argv[]) {
   if (MOCK_EXECUTE) {
     fprintf(stdout, "%s\n", whole_cmd_str);
   } else {
-    int return_value = execvp(file, argv);
+    return_value = execvp(file, argv);
     if (return_value == -1) {
       switch (errno) {
         // TODO: Implement a handler for each different error message
@@ -51,4 +52,5 @@ int exec_wrapper(char *file, char * argv[]) {
     }
   }
   free(whole_cmd_str);
+  return return_value;
 }
