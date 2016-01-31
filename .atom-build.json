@@ -1,8 +1,13 @@
 {
   "cmd": "scons",
   "targets": {
-    "build-queenbee": {
-      "cmd": "scons",
+    "build-release": {
+      "cmd": "scons --build-release",
+      "sh": true,
+      "cwd": "{PROJECT_PATH}"
+    },
+    "build-debug": {
+      "cmd": "scons --build-debug",
       "sh": true,
       "cwd": "{PROJECT_PATH}"
     },
