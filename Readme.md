@@ -18,9 +18,18 @@ if the system has hybrid graphics and if Bumblee is installed.
 
 # Building #
 
-To build the project run 
+To build **queenbee** you need:
+1. Python
+2. scons
+
+To build in debug mode
 ```shell
-scons
+scons --build-debug
+```
+
+To build in debug mode
+```shell
+scons --build-release
 ```
 
 To clean the project run
