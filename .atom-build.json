@@ -1,0 +1,15 @@
+{
+  "cmd": "scons",
+  "targets": {
+    "build-queenbee": {
+      "cmd": "scons",
+      "sh": true,
+      "cwd": "{PROJECT_PATH}"
+    },
+    "clean-queenbee": {
+      "cmd": "scons -c",
+      "sh": true,
+      "cwd": "{PROJECT_PATH}"
+    }
+  }
+}
