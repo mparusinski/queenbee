@@ -10,6 +10,7 @@ struct args_t {
   int verbose;
   int mock_execution;
   char * executable_path;
+  char ** executable_arguments;
 } ARGUMENTS;
 
 #define IS_VERBOSE (ARGUMENTS.verbose >= 1)
