@@ -204,8 +204,7 @@ int main(int argc, char *argv[]) {
       break;
   }
 
-  char * exec_argv[] = { ARGUMENTS.executable_path, (char *)0 };
-  exec_wrapper(ARGUMENTS.executable_path, exec_argv);
+  exec_wrapper(ARGUMENTS.executable_path, ARGUMENTS.executable_arguments);
 
   return EXIT_SUCCESS;
 }
